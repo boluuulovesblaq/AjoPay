@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useWindowWidth } from '../useWindowWidth'
 
+
 function Navbar() {
   const width = useWindowWidth()
   const isMobile = width < 768

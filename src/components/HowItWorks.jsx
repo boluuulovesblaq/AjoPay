@@ -1,4 +1,9 @@
+import { useWindowWidth } from '../useWindowWidth'
+
 function HowItWorks() {
+  const width = useWindowWidth()
+  const isMobile = width < 768
+
   const steps = [
     {
       number: '01',
@@ -43,7 +48,7 @@ function HowItWorks() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
         gap: '1.5rem',
         maxWidth: '960px',
         margin: '0 auto'

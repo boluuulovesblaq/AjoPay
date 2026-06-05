@@ -1,4 +1,9 @@
+import { useWindowWidth } from '../useWindowWidth'
+
 function Footer() {
+  const width = useWindowWidth()
+  const isMobile = width < 768
+
   return (
     <footer style={{
       background: 'var(--charcoal-mid)',
@@ -7,11 +12,13 @@ function Footer() {
     }}>
       <div style={{
         display: 'flex',
-        alignItems: 'center',
+        flexDirection: isMobile ? 'column' : 'row',
+        alignItems: isMobile ? 'flex-start' : 'center',
         justifyContent: 'space-between',
-        flexWrap: 'wrap',
         gap: '1.5rem'
       }}>
+
+        {/* LOGO */}
         <div style={{
           fontFamily: 'var(--font-display)',
           fontWeight: 800, fontSize: '1.35rem',
@@ -19,7 +26,13 @@ function Footer() {
         }}>
           Ajo<span style={{ color: 'var(--white)' }}>Pay</span>
         </div>
-        <div style={{ display: 'flex', gap: '2rem' }}>
+
+        {/* NAV LINKS */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: isMobile ? '1.25rem' : '2rem'
+        }}>
           {['Home', 'Features', 'About', 'Contact'].map(link => (
             <a key={link} href="#" style={{
               fontSize: '0.875rem', fontWeight: 500,
@@ -29,9 +42,15 @@ function Footer() {
             </a>
           ))}
         </div>
-        <div style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>
+
+        {/* COPYRIGHT */}
+        <div style={{
+          fontSize: '0.8rem',
+          color: 'var(--muted)'
+        }}>
           © {new Date().getFullYear()} AjoPay. All rights reserved.
         </div>
+
       </div>
     </footer>
   )
