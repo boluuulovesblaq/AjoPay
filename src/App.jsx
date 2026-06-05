@@ -1,9 +1,17 @@
-import './App.css'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import HowItWorks from './components/HowItWorks'
+import Features from './components/Features'
+import Footer from './components/Footer'
 
 function App() {
   return (
     <div>
-      <h1>AjoPay</h1>
+      <Navbar />
+      <Hero />
+      <HowItWorks />
+      <Features />
+      <Footer />
     </div>
   )
 }
