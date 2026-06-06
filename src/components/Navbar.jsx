@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useWindowWidth } from '../useWindowWidth'
+import { useNavigate } from 'react-router-dom'
 
 
 function Navbar() {
   const width = useWindowWidth()
   const isMobile = width < 768
   const [menuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <nav style={{
@@ -45,7 +47,7 @@ function Navbar() {
         {/* DESKTOP BUTTONS */}
         {!isMobile && (
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-            <button style={{
+            <button onClick={() => navigate('/auth')} style={{
               background: 'none',
               border: '1px solid rgba(255,255,255,0.15)',
               color: 'var(--white)',
@@ -56,7 +58,7 @@ function Navbar() {
             }}>
               Login
             </button>
-            <button style={{
+            <button onClick={() => navigate('/auth')} style={{
               background: 'var(--amber)',
               border: 'none',
               color: 'var(--charcoal)',
@@ -107,7 +109,7 @@ function Navbar() {
             </a>
           ))}
           <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
-            <button style={{
+            <button onClick={() => navigate('/auth')} style={{
               flex: 1,
               background: 'none',
               border: '1px solid rgba(255,255,255,0.15)',
@@ -119,7 +121,7 @@ function Navbar() {
             }}>
               Login
             </button>
-            <button style={{
+            <button onClick={() => navigate('/auth')} style={{
               flex: 1,
               background: 'var(--amber)',
               border: 'none',
